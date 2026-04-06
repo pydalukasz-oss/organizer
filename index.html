@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#6c47ff">
-<title>BizOrganizer Pro v4</title>
+<title>BizOrganizer Pro</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -266,6 +266,49 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
 .ni.active.dash{color:var(--y1);}
 .ni.active.dash .ni-ic{background:linear-gradient(135deg,var(--y1),var(--o1));box-shadow:0 4px 10px rgba(245,158,11,0.4);}
 @media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr);}.dash-grid{grid-template-columns:1fr;}}
+
+#premium-badge{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f59e0b,#ff6b35);color:#fff;font-size:11px;font-weight:800;padding:6px 14px;border-radius:20px;box-shadow:0 4px 12px rgba(245,158,11,0.4);cursor:pointer;transition:all 0.2s;white-space:nowrap;border:none;font-family:var(--font);}
+#premium-badge:hover{box-shadow:0 6px 16px rgba(245,158,11,0.5);transform:translateY(-1px);}
+#premium-badge.free-plan{background:var(--bg);color:#7a8899;box-shadow:-3px -3px 6px rgba(255,255,255,0.9),3px 3px 6px rgba(163,177,198,0.6);}
+.usage-bar-wrap{background:var(--bg);border-radius:12px;padding:10px 14px;box-shadow:inset -3px -3px 6px rgba(255,255,255,0.9),inset 3px 3px 6px rgba(163,177,198,0.6);margin-bottom:12px;flex-shrink:0;}
+.usage-bar-label{display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:6px;color:#7a8899;}
+.usage-bar-track{height:6px;background:rgba(163,177,198,0.3);border-radius:3px;overflow:hidden;}
+.usage-bar-fill{height:100%;border-radius:3px;transition:width 0.5s ease;background:linear-gradient(90deg,#00c49a,#6c47ff);}
+.usage-bar-fill.warn{background:linear-gradient(90deg,#f59e0b,#ef4444);}
+.usage-bar-fill.full{background:linear-gradient(90deg,#ef4444,#c00);}
+.prem-overlay{position:fixed;inset:0;background:rgba(232,236,240,0.85);backdrop-filter:blur(6px);z-index:150;display:flex;align-items:center;justify-content:center;animation:pin 0.3s ease;}
+.prem-prompt{background:var(--bg);border-radius:22px;padding:28px;width:360px;max-width:92vw;box-shadow:-10px -10px 20px rgba(255,255,255,0.9),10px 10px 20px rgba(163,177,198,0.8);text-align:center;animation:moin 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+.prem-prompt-icon{font-size:48px;margin-bottom:12px;}
+.prem-prompt-title{font-size:18px;font-weight:800;margin-bottom:8px;color:#3d4a5c;}
+.prem-prompt-msg{font-size:13px;color:#7a8899;margin-bottom:20px;line-height:1.6;}
+.prem-prompt-price{font-size:28px;font-weight:800;color:#f59e0b;margin-bottom:6px;}
+.prem-prompt-sub{font-size:11px;color:#a8b5c3;margin-bottom:20px;}
+#panel-premium{background:var(--bg);}
+#prem-body{flex:1;overflow-y:auto;padding-bottom:20px;}
+.prem-hero{background:linear-gradient(135deg,#f59e0b,#ff6b35);border-radius:20px;padding:24px;margin-bottom:16px;color:#fff;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(245,158,11,0.4);}
+.prem-hero::after{content:'⭐';position:absolute;right:-10px;top:-10px;font-size:80px;opacity:0.15;}
+.prem-hero-title{font-size:24px;font-weight:800;margin-bottom:6px;}
+.prem-hero-sub{font-size:13px;opacity:0.9;margin-bottom:16px;}
+.prem-price{font-size:34px;font-weight:800;}
+.prem-price span{font-size:15px;opacity:0.8;}
+.prem-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.pf{background:var(--bg);border-radius:14px;padding:14px;box-shadow:-5px -5px 10px rgba(255,255,255,0.9),5px 5px 10px rgba(163,177,198,0.7);display:flex;gap:10px;align-items:flex-start;}
+.pf-ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.pf-t{font-size:12px;font-weight:800;margin-bottom:2px;color:#3d4a5c;}
+.pf-d{font-size:10px;color:#7a8899;line-height:1.4;}
+.compare{background:var(--bg);border-radius:16px;padding:14px 16px;box-shadow:-5px -5px 10px rgba(255,255,255,0.9),5px 5px 10px rgba(163,177,198,0.7);margin-bottom:14px;}
+.compare-hdr{font-size:11px;font-weight:700;color:#a8b5c3;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+.cr{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(163,177,198,0.2);}
+.cr:last-child{border-bottom:none;}
+.cr-f{font-size:12px;font-weight:600;color:#3d4a5c;}
+.cr-free{text-align:center;font-size:12px;font-weight:700;color:#7a8899;min-width:50px;}
+.cr-prem{text-align:center;font-size:13px;font-weight:700;color:#f59e0b;min-width:50px;}
+.trial-box{background:var(--bg);border-radius:16px;padding:18px;box-shadow:-5px -5px 10px rgba(255,255,255,0.9),5px 5px 10px rgba(163,177,198,0.7);text-align:center;}
+.trial-t{font-size:16px;font-weight:800;margin-bottom:6px;}
+.trial-s{font-size:12px;color:#7a8899;margin-bottom:16px;line-height:1.6;}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 24px;border-radius:14px;border:none;background:linear-gradient(135deg,#f59e0b,#ff6b35);color:#fff;font-size:14px;font-family:var(--font);font-weight:800;cursor:pointer;transition:all 0.2s;box-shadow:0 6px 20px rgba(245,158,11,0.4);width:100%;}
+.btn-gold:hover{box-shadow:0 8px 24px rgba(245,158,11,0.5);transform:translateY(-1px);}
+@media(max-width:600px){.prem-feats{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -293,7 +336,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
   <div id="main">
     <!-- KALENDARZ -->
     <div class="panel active" id="panel-calendar">
-      <div class="ph"><div class="pt">📅 Kalendarz</div><div class="pa"><button class="btn primary" onclick="openM()">+ Nowe spotkanie</button></div></div>
+      <div class="ph"><div class="pt">📅 Kalendarz</div><div class="pa"><button class="btn primary" onclick="typeof tryAddEvent==='function'?tryAddEvent():openM()">+ Nowe spotkanie</button></div></div>
       <div id="vhelp">
         <div class="vc" onclick="dc('Dodaj spotkanie jutro o dziesiątej')">🎤 jutro o 10</div>
         <div class="vc" onclick="dc('Spotkanie z Janem w piątek o czternastej')">🎤 z Janem w piątek o 14</div>
@@ -303,6 +346,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
         <div class="vc" onclick="dc('Lunch z Anną w środę o trzynastej')">🎤 lunch ze środą o 13</div>
       </div>
       <div id="cb">
+        <div id="free-usage-cal"></div>
         <div class="cal-nav">
           <button class="btn" onclick="cm(-1)">‹</button>
           <div class="cal-month" id="cml"></div>
@@ -370,6 +414,40 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
         <button class="btn primary" onclick="at()">Zapisz</button>
       </div>
     </div>
+
+    <!-- PREMIUM -->
+    <div class="panel" id="panel-premium">
+      <div class="ph"><div class="pt">⭐ BizOrganizer Premium</div></div>
+      <div id="prem-body">
+        <div class="prem-hero">
+          <div class="prem-hero-title">⭐ BizOrganizer Premium</div>
+          <div class="prem-hero-sub">Odblokuj pełną moc organizera biznesowego</div>
+          <div class="prem-price">9,99 zł <span>/miesiąc</span></div>
+        </div>
+        <div class="prem-feats">
+          <div class="pf"><div class="pf-ic" style="background:linear-gradient(135deg,#ede8ff,#d8ccff);">🎤</div><div><div class="pf-t">Sterowanie głosowe</div><div class="pf-d">Dodawaj i zarządzaj wszystkim głosem po polsku.</div></div></div>
+          <div class="pf"><div class="pf-ic" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);">📅</div><div><div class="pf-t">Bez limitu spotkań</div><div class="pf-d">Darmowa wersja: max 5. Premium: nieograniczone.</div></div></div>
+          <div class="pf"><div class="pf-ic" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">📤</div><div><div class="pf-t">Eksport danych</div><div class="pf-d">Eksportuj do PDF, CSV, pliku tekstowego.</div></div></div>
+          <div class="pf"><div class="pf-ic" style="background:linear-gradient(135deg,#bfd7fe,#93c5fd);">🔊</div><div><div class="pf-t">Odczyt głosowy</div><div class="pf-d">Aplikacja przeczyta Ci plan dnia na głos.</div></div></div>
+        </div>
+        <div class="compare">
+          <div class="compare-hdr">Porównanie wersji</div>
+          <div class="cr" style="font-size:10px;font-weight:700;color:#a8b5c3;"><div>Funkcja</div><div class="cr-free">Darmowa</div><div class="cr-prem">⭐ Premium</div></div>
+          <div class="cr"><div class="cr-f">Spotkania w kalendarzu</div><div class="cr-free">max 5</div><div class="cr-prem">∞</div></div>
+          <div class="cr"><div class="cr-f">Notatki i myśli</div><div class="cr-free">∞</div><div class="cr-prem">∞</div></div>
+          <div class="cr"><div class="cr-f">Dashboard</div><div class="cr-free">✅</div><div class="cr-prem">✅</div></div>
+          <div class="cr"><div class="cr-f">Sterowanie głosowe</div><div class="cr-free">🔒</div><div class="cr-prem">✅</div></div>
+          <div class="cr"><div class="cr-f">Odczyt głosowy</div><div class="cr-free">🔒</div><div class="cr-prem">✅</div></div>
+          <div class="cr"><div class="cr-f">Eksport PDF / CSV</div><div class="cr-free">🔒</div><div class="cr-prem">✅</div></div>
+        </div>
+        <div class="trial-box">
+          <div class="trial-t">🎁 7 dni za darmo!</div>
+          <div class="trial-s">Wypróbuj Premium przez 7 dni bez żadnych opłat.<br>Po okresie próbnym 9,99 zł/miesiąc. Anuluj w każdej chwili.</div>
+          <button class="btn-gold" onclick="activatePremium()">Rozpocznij 7-dniowy trial ⭐</button>
+          <div style="font-size:11px;color:#a8b5c3;margin-top:10px;">Płatność przez Google Play • Anuluj w każdej chwili</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -401,12 +479,12 @@ const WH={pierwszej:1,drugiej:2,trzeciej:3,czwartej:4,piątej:5,piatej:5,szóste
 let tF='all',nS='';
 let S={
   m:new Date().getMonth(),y:new Date().getFullYear(),sel:new Date(),
-  ev:JSON.parse(localStorage.getItem('biz-ev6')||'[]'),
-  no:JSON.parse(localStorage.getItem('biz-no6')||'[]'),
-  th:JSON.parse(localStorage.getItem('biz-th6')||'[]'),
+  ev:JSON.parse(localStorage.getItem('biz-ev-p')||'[]'),
+  no:JSON.parse(localStorage.getItem('biz-no-p')||'[]'),
+  th:JSON.parse(localStorage.getItem('biz-th-p')||'[]'),
   nid:null,ls:false,rec:null
 };
-function sv(){localStorage.setItem('biz-ev6',JSON.stringify(S.ev));localStorage.setItem('biz-no6',JSON.stringify(S.no));localStorage.setItem('biz-th6',JSON.stringify(S.th));}
+function sv(){localStorage.setItem('biz-ev-p',JSON.stringify(S.ev));localStorage.setItem('biz-no-p',JSON.stringify(S.no));localStorage.setItem('biz-th-p',JSON.stringify(S.th));}
 function ds(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function sp(n){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
@@ -414,7 +492,7 @@ function sp(n){
   document.getElementById('panel-'+n).classList.add('active');
   const m={calendar:0,notes:1,thoughts:2};
   document.querySelectorAll('.nav-item')[m[n]]?.classList.add('active');
-  if(n==='notes')rn();if(n==='thoughts')rt();if(n==='calendar')rc();
+  if(n==='notes')rn();if(n==='thoughts')rt();if(n==='calendar'){rc();renderFreeUsage();}
 }
 function ud(){document.getElementById('tdate').textContent=new Date().toLocaleDateString('pl-PL',{weekday:'short',year:'numeric',month:'short',day:'numeric'});}
 function badges(){document.getElementById('be').textContent=S.ev.length;document.getElementById('bn').textContent=S.no.length;document.getElementById('bt').textContent=S.th.length;}
@@ -598,7 +676,7 @@ function sp(n){
   const navMap={dashboard:0,calendar:1,notes:2,thoughts:3};
   const allNi=document.querySelectorAll('.ni,.nav-item');
   if(allNi[navMap[n]])allNi[navMap[n]].classList.add('active');
-  if(n==='dashboard')rdash();
+  if(n==='dashboard'){rdash();renderFreeUsage();}
   if(n==='notes')renderNotesList();
   if(n==='thoughts')renderThoughts();
   if(n==='calendar')renderCalendar();
@@ -666,6 +744,54 @@ function readToday(){
   let txt='Twoje spotkania na dziś: ';ev.forEach(e=>txt+='O godzinie '+e.time.replace(':','i')+' — '+e.title+'. ');
   showFeedback('🔊 Odczytuję '+ev.length+' spotkań...');
   if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang='pl-PL';u.rate=0.95;speechSynthesis.speak(u);}
+}
+
+const FREE_LIMIT = 5;
+let isPrem = localStorage.getItem('biz-premium') === 'true';
+
+function isPremium(){return isPrem;}
+
+function activatePremium(){
+  isPrem = true;
+  localStorage.setItem('biz-premium','true');
+  updatePremiumUI();
+  toast('🎉 Premium aktywowane! 7 dni za darmo!','g',5000);
+  setTimeout(()=>sp('dashboard'),1500);
+}
+
+function updatePremiumUI(){
+  const badge = document.getElementById('premium-badge');
+  if(!badge) return;
+  if(isPrem){
+    badge.textContent = '⭐ Premium';
+    badge.className = '';
+    badge.style.cssText = 'display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f59e0b,#ff6b35);color:#fff;font-size:11px;font-weight:800;padding:6px 14px;border-radius:20px;box-shadow:0 4px 12px rgba(245,158,11,0.4);cursor:pointer;border:none;font-family:var(--font);';
+    badge.onclick = ()=>toast('✅ Masz aktywne Premium!','g');
+  }
+}
+
+function showPremiumPrompt(msg){
+  const overlay = document.createElement('div');
+  overlay.className = 'prem-overlay';
+  overlay.innerHTML = '<div class="prem-prompt"><div class="prem-prompt-icon">⭐</div><div class="prem-prompt-title">Funkcja Premium</div><div class="prem-prompt-msg">'+(msg||'Ta funkcja jest dostępna tylko w wersji Premium.')+'</div><div class="prem-prompt-price">9,99 zł</div><div class="prem-prompt-sub">/miesiąc • 7 dni za darmo</div><div style="display:flex;gap:10px;justify-content:center;"><button class="btn" onclick="this.closest('.prem-overlay').remove()" style="border:none;background:#e8ecf0;box-shadow:-3px -3px 6px rgba(255,255,255,0.9),3px 3px 6px rgba(163,177,198,0.6);">Anuluj</button><button class="btn-gold" style="flex:1;" onclick="this.closest('.prem-overlay').remove();sp('premium')">Kup Premium ⭐</button></div></div>';
+  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+  document.body.appendChild(overlay);
+}
+
+function tryAddEvent(){
+  if(!isPremium() && state && state.events && state.events.length >= FREE_LIMIT){
+    showPremiumPrompt('Osiągnąłeś limit '+FREE_LIMIT+' spotkań w wersji darmowej. Kup Premium aby dodawać nieograniczoną liczbę spotkań.');
+    return;
+  }
+  openEventModal();
+}
+
+function renderFreeUsage(){
+  const evCount = (typeof state !== 'undefined' ? state.events : S ? S.ev : []).length || 0;
+  const pct = Math.min(100, Math.round(evCount/FREE_LIMIT*100));
+  const cls = pct>=100?'full':pct>=80?'warn':'';
+  const html = isPremium() ? '' : '<div class="usage-bar-wrap"><div class="usage-bar-label"><span>📅 Spotkania (wersja darmowa)</span><span>'+evCount+'/'+FREE_LIMIT+' — <span style="color:#6c47ff;cursor:pointer;font-weight:800;" onclick="sp('premium')">Upgrade ⭐</span></span></div><div class="usage-bar-track"><div class="usage-bar-fill '+cls+'" style="width:'+pct+'%"></div></div></div>';
+  ['free-usage-dash','free-usage-cal'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=html;});
 }
 function init(){
   ud();setInterval(ud,60000);
