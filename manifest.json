@@ -17,6 +17,10 @@
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "label": "Pulpit glowny" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "label": "Kalendarz spotkan" }
   ],
+  "shortcuts": [
+    { "name": "Kalendarz", "short_name": "Kalendarz", "url": "/", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] },
+    { "name": "Notatnik", "short_name": "Notatki", "url": "/", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] }
+  ],
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
